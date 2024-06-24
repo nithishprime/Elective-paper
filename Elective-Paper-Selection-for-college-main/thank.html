@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Thank You</title>
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .thank-you {
+      font-size: 32px;
+      color: #333;
+      margin-top: 200px;
+      opacity: 0;
+      animation-name: fade-in;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="thank-you">ThankYou for selecting course and staff</div>
+
+  <script>
+    // Add a delay before removing the "thank-you" element
+    setTimeout(function() {
+      var thankYouElement = document.querySelector('.thank-you');
+      thankYouElement.parentNode.removeChild(thankYouElement);
+    }, 4000); // 4000ms = 4 seconds
+  </script>
+</body>
+</html>

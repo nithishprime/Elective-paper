@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		
+		body{
+			background-color: black;}
+		
+	</style>
+	<link rel="stylesheet" type="text/css" href='/static/login.css'>
+	<script src="login.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<title>Sign-Up</title>
+</head>
+<body>
+	<section class="login">
+        <div class="login_box">
+            <div class="left">
+                <div class="top_link"><a href="#"><img src="https://drive.google.com/u/0/uc?id=16U__U5dJdaTfNGobB_OpwAJ73vM50rPV&export=download" alt="">Return home</a></div>
+                <div class="contact">
+                    <form action="{{ url_for('signup') }}" method="post">
+                        <h3>Sign-Up</h3>
+                        <input type="text" name="name" placeholder="User name" required="">
+                    <input type="email" name="email" placeholder="Email" required="">
+                    <input type="password" name="password" placeholder="Password" required="">
+                    <button class="submit">Sign up</button>
+                    <br><p class="bottom" style="color: white; margin-left: 15%;">Already have an account?  <a class="bottom" href="{{url_for('logup')}}"> Log-in here</a></p>
+                    </form>
+                </div>
+            </div>
+            <div class="right">
+            </div>
+        </div>
+    </section>	
+</body>
+</html>
+</body>
+</html>

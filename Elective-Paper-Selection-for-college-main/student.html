@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+    <title>College Course Selection</title>
+    <link rel="stylesheet" type="text/css" href='/static/student.css'>
+    <script>
+        function updateCourseOptions() {
+            var yearSelect = document.getElementById("year");
+            var courseSelect = document.getElementById("course");
+            var selectedYear = yearSelect.value;
+
+            // Clear existing options
+            courseSelect.innerHTML = "";
+
+            var courseOptions = [];
+
+            if (selectedYear === "3 Year - V sem") {
+                courseOptions = [
+                   "Theory of Computation",
+        	   "Data Science",
+		   "Building Enterprise Applications",
+		   "Artificial Intelligence",
+		   "Multicore Architecture",
+		   "Unix Internals",
+		   "Graph Theory",
+                    // Add more course options for 3rd Year V Semester
+                ];
+            } 
+            
+            else if (selectedYear === "4 Year - VII sem") {
+                courseOptions = [
+                "Game Theory and its Applications",
+                "Wireless and Sensor Networks",
+            "Optimization Techniques",
+            "Data Warehousing and Data Mining",
+            "Distributed Systems",
+            "Full Stack Development",
+            "Graphics and Multimedia",
+                    // Add more course options for 4th Year VIII Semester
+                ];
+            }
+
+            /* else if (selectedYear === "4 Year - VII sem") {
+                // For 4th Year - VII sem, add multiple elective course selectors
+                var electiveSelectors = 3; // Number of elective selectors
+                for (var i = 1; i <= electiveSelectors; i++) {
+                    var electiveSelector = document.getElementById("elective" + i);
+                    var selectedElective = electiveSelector.value;
+                    // Customize course options based on the selected elective
+                    var electiveCourseOptions = [];
+                    if (selectedElective === "Elective 1") {
+                        electiveCourseOptions = [
+                            "Game Theory and its Applications",
+                	    "Wireless and Sensor Networks",
+		            "Optimization Techniques",
+		            "Data Warehousing and Data Mining",
+		            "Distributed Systems",
+		            "Full Stack Development",
+		            "Graphics and Multimedia",
+                            // Add more course options for Elective 1
+                        ];
+                    } else if (selectedElective === "Elective 2") {
+                        electiveCourseOptions = [
+                            "Blockchain Technologies",
+                	    "Total Quality Mannagement",
+			    "Decision Support Systems",
+			    "Social Network Analysis",
+			    "Human Computer Interface",
+			    "Business Intelligence and its Applications",
+			    "Web Mining",
+                            // Add more course options for Elective 2
+                        ];
+                    } else if (selectedElective === "Elective 3") {
+                        electiveCourseOptions = [
+                            "Cryptography and Network Security",
+                	    "Modeling and Simulation",
+			    "Parallel Computing Architecture and Programming",
+		            "Digital Marketing",
+			    "Big Data Analytics",
+			    "Cross platform application development",
+			    "Approximation Algorithms",
+			    "Fundamental of Research",
+			// Add more course options for Elective 3
+                        ];
+                    } else if (selectedElective == "Elective 4") {
+			elsectiveCourseOptions = [
+				"Software Defined Networks",
+                		"Information Security",
+				"Intelligent Systems",
+				"Software Project Management",
+				"Data Visualization Techniques",
+				"Information Retrieval",
+				"Computer Vision",
+		
+            		];
+		    } 
+		
+                    // Add course options to the corresponding elective selector
+                    electiveSelector.innerHTML = "";
+                    for (var j = 0; j < electiveCourseOptions.length; j++) {
+                        var option = document.createElement("option");
+                        option.value = electiveCourseOptions[j];
+                        option.text = electiveCourseOptions[j];
+                        electiveSelector.add(option);
+                    }
+                } 
+            } */ else if (selectedYear === "4 Year - VIII sem") {
+                courseOptions = [
+                    "Natural Language Processing",
+                    "Cyber Forensics",
+		    "Augmented and Virtual Reality",
+		    "Predictive Data Analytics",
+		    "Software Quality and Testing",
+		    "Randomized  Algorithms",
+                    // Add more course options for 4th Year VIII Semester
+                ];
+            }
+
+            // Add course options to the select element
+            for (var i = 0; i < courseOptions.length; i++) {
+                var option = document.createElement("option");
+                option.value = courseOptions[i];
+                option.text = courseOptions[i];
+                courseSelect.add(option);
+            }
+        }
+
+        function toggleSelectionBox() {
+            var yearSelect = document.getElementById("yearSelect");
+            var electiveCourses = document.getElementById("electiveCourses");
+
+            if (yearSelect.value === "4 Year - VII Sem") {
+                electiveCourses.style.display = "block";
+            } else {
+                electiveCourses.style.display = "none";
+            }
+        }
+
+        // Call the function initially to populate the course options
+        window.onload = updateCourseOptions;
+    </script>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="https://www.kongu.ac.in/">Course</a></li>
+            <li><a href="https://www.kongu.ac.in/departments/cse.php#">Staff</a></li>
+            <li><a href="{{url_for('admin')}}">Admin</a></li>
+        </ul>
+        <a href="{{url_for('logout')}}" class="login-button">Logout</a>
+    </nav>
+</header>
+
+<h1>College Course Selection</h1>
+
+<form class="form1" action="{{ url_for('student') }}" method="post">
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="roll">Roll Number:</label>
+    <input type="text" id="roll" name="roll" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="year">Select a year:</label>
+    <select id="year" name="year" onchange="updateCourseOptions(); toggleSelectionBox();">
+        <option value="3 Year - V sem">3 Year - V sem</option>
+        <option value="4 Year - VII sem">4 Year - VII sem</option>
+        <option value="4 Year - VIII sem">4 Year - VIII sem</option>
+    </select>
+
+    <label for="department">Select a department:</label>
+    <select id="department" name="department" onchange="updateCourseOptions(); toggleSelectionBox();">
+        <option value="CSE">CSE</option>
+    </select>
+
+    <!-- Elective Selectors 
+    <label for="elective1">Elective 1:</label>
+    <select id="elective1" name="elective1"></select>
+
+    <label for="elective2">Elective 2:</label>
+    <select id="elective2" name="elective2"></select>
+
+    <label for="elective3">Elective 3:</label>
+    <select id="elective3" name="elective3"></select>
+    
+    <!-- End of Elective Selectors 
+
+    <label for="elective4">Elective 4:</label>
+    <select id="elective4" name="elective4"></select>  -->
+
+    <label for="course">Select a course:</label>
+    <select id="course" name="course"></select>
+
+    <input type="submit" value="Save Details">
+    <p style="margin-left: 51%;">Check the staffs <a class="bottom" href="https://www.kongu.ac.in/departments/cse.php#">here</a></p>
+</form>
+</body>
+</html>

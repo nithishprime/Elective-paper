@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+		
+		body{
+			background-color: black;}
+		</style>
+  <title>College Course Selection</title>
+  <link rel="stylesheet" type="text/css" href='/static/staff.css'>
+  <script src="mainpage.js"></script>
+  <script>
+    function updateSemesterOptions() {
+    var yearSelect = document.getElementById("year");
+    var semesterSelect = document.getElementById("semester"); // Add semester select element
+    var departmentSelect = document.getElementById("department");
+    var courseSelect = document.getElementById("course");
+    var selectedYear = yearSelect.value;
+    var selectedSemester = semesterSelect.value;
+    var selectedDepartment = departmentSelect.value;
+  
+    // Clear existing options
+    courseSelect.innerHTML = "";
+  
+    if (selectedYear === "1" || selectedYear === "2") {
+      var optionNone = document.createElement("option");
+      optionNone.value = "None";
+      optionNone.text = "None";
+      courseSelect.add(optionNone);
+    } else if (selectedYear === "3" && selectedSemester === "5" && selectedDepartment === "cse") {
+      var courseOptions = [
+        "Theory of Computation",
+        "Data Science",
+        "Building Enterprise Applications",
+        "Artificial Intelligence",
+        "Multicore Architecture",
+        "Unix Internals",
+        "Graph Theory"
+      ];
+  
+      for (var i = 0; i < courseOptions.length; i++) {
+        var option = document.createElement("option");
+        option.value = courseOptions[i];
+        option.text = courseOptions[i];
+        courseSelect.add(option);
+      }
+    }
+  }
+  
+  </script>
+  
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <a href="login.html" class="login-button">Logout</a>
+    </nav>
+  </header>
+
+  <h1>Staff Selection Page</h1>
+  <!DOCTYPE html>
+  <html>
+ 
+  
+  <link rel="stylesheet" type="text/css" href="mainpage.css">
+  <style>
+    .staff-card {
+      display: inline-block;
+      width: 200px;
+      margin: 10px;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ccc;
+    }
+
+    .staff-photo {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 10px;
+    }
+
+    .staff-name {
+      font-weight: bold;
+    }
+
+    .staff-select {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+  <div class="staff-card">
+    <img src="user.jpg" alt="Staff 1" class="staff-photo">
+    <div class="staff-name">John Doe</div>
+    <h4>Exp : 10 Years </h4>
+    <div class="staff-select">
+      <input type="radio" id="staff1" name="staff" value="staff1">
+      <label for="staff1">Select</label>
+    </div>
+  </div>
+
+  <div class="staff-card">
+    <img src="user.jpg" alt="Staff 2" class="staff-photo">
+    <div class="staff-name">Jane Smith</div>
+    <h4>Exp : 6 Years</h4>
+    <div class="staff-select">
+      <input type="radio" id="staff2" name="staff" value="staff2">
+      <label for="staff2">Select</label>
+    </div>
+  </div>
+
+  <div class="staff-card">
+    <img src="user.jpg" alt="Staff 3" class="staff-photo">
+    <div class="staff-name">Mike Johnson</div>
+    <h4>Exp : 4 Years</h4>
+    <div class="staff-select">
+      <input type="radio" id="staff3" name="staff" value="staff3">
+      <label for="staff3">Select</label>
+    </div>
+  </div>
+
+  <div class="staff-card">
+    <img src="user.jpg" alt="Staff 3" class="staff-photo">
+    <div class="staff-name">Alan</div>
+    <h4>Exp : 4 Years</h4>
+    <div class="staff-select">
+      <input type="radio" id="staff3" name="staff" value="staff3">
+      <label for="staff3">Select</label>
+    </div>
+  </div>
+
+
+  <!-- Add more staff cards here -->
+
+  <form class="form1" action="" method="post">
+    <input type="submit" ><a href="thank.html"></a>Submit" >
+  </form>
+  
+  
+</body>
+</html>
